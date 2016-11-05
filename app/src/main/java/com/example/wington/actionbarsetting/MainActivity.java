@@ -1,5 +1,7 @@
 package com.example.wington.actionbarsetting;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,7 +23,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTest(MenuItem mi){
-        Toast.makeText(this,"Dale Clicked",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"Dale Clicked",Toast.LENGTH_SHORT).show();
+        User user = new User("Manuel","Red");
+
+        //Explicit Intent
+        Intent secondActIntent = new Intent(this,SecondActivity.class);
+        secondActIntent.putExtra("text","De 2nd to 1st");
+        secondActIntent.putExtra("visible",true);
+        secondActIntent.putExtra("user",user);
+        startActivity(secondActIntent);
+
+        //Implicit
+//        String url = "http://www.thecodepath.com";
+//        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//        startActivity(i);
+
+
     }
 
     @Override
